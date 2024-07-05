@@ -36,13 +36,6 @@ public class CountryInfoCRUDServiceImpl implements CountryInfoCRUDService {
         return convertToDto(country);
     }
 
-//    @Override
-//    public CountryInfoDTO createCountry(@Valid CountryInfoDTO countryInfoDTO) {
-//        CountryInfo countryInfo = convertToEntity(countryInfoDTO);
-//        CountryInfo savedCountry = countryInfoRepository.save(countryInfo);
-//        return convertToDto(savedCountry);
-//    }
-
     @Override
     public CountryInfoDTO updateCountry(Long id, @Valid CountryInfoDTO countryInfoDTO) {
         CountryInfo existingCountry = countryInfoRepository.findById(id)
@@ -69,7 +62,7 @@ public class CountryInfoCRUDServiceImpl implements CountryInfoCRUDService {
 
     private CountryInfoDTO convertToDto(CountryInfo countryInfo) {
         CountryInfoDTO dto = new CountryInfoDTO();
-//        dto.setId(countryInfo.getId());
+        dto.setId(countryInfo.getId());
         dto.setIsoCode(countryInfo.getIsoCode());
         dto.setName(countryInfo.getName());
         dto.setCapitalCity(countryInfo.getCapitalCity());
@@ -84,7 +77,6 @@ public class CountryInfoCRUDServiceImpl implements CountryInfoCRUDService {
 
     private LanguageDTO convertToDto(Language language) {
         LanguageDTO dto = new LanguageDTO();
-//        dto.setId(language.getId());
         dto.setIsoCode(language.getIsoCode());
         dto.setName(language.getName());
         return dto;

@@ -9,11 +9,9 @@ import com.technical.assessment.util.StringUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -28,6 +26,7 @@ public class CountryController {
     @Autowired
     private CountryInfoCRUDService countryInfoCRUDService;
 
+    // Get country info
     @PostMapping("/isoCode")
     public CountryInfoResponse getCountryIsoCode(@RequestBody CountryDTO countryDTO) {
         // Convert country name to sentence case
@@ -40,6 +39,7 @@ public class CountryController {
         return response;
     }
 
+    // Get full country info from SOAP endpoint
     @PostMapping("/fullInfo")
     public CountryInfoDTO getFullCountryInfo(@RequestBody CountryDTO countryDTO) {
         // Convert country name to sentence case
@@ -98,17 +98,7 @@ public class CountryController {
         }
     }
 
-    // Delete country
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
-//        boolean deleted = countryInfoCRUDService.deleteCountry(id);
-//        if (deleted) {
-//            return ResponseEntity.noContent().build();
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-
+    // Delete country information
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
         log.info("Deleting country with id: {}", id);

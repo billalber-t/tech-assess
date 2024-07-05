@@ -159,6 +159,7 @@ public class CountryInfoService {
             countryInfo.setContinentCode(extractTagValue(countryInfoXml, "m:sContinentCode"));
             countryInfo.setCurrencyIsoCode(extractTagValue(countryInfoXml, "m:sCurrencyISOCode"));
             countryInfo.setCountryFlag(extractTagValue(countryInfoXml, "m:sCountryFlag"));
+            countryInfo.setLanguages(new ArrayList<>());
 
             // Handle languages
             String languagesPatternString = "<m:tLanguage>(.*?)</m:tLanguage>";
